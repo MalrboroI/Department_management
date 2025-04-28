@@ -1,7 +1,8 @@
-React + TypeScript + inline styles + Vite
-📦 Установка
-Клонируйте репозиторий: git clone https://github.com/MalrboroI/Department_management.git
+# 🚀 React + TypeScript + inline styles + Vite
 
-Установите зависимости: yarn install
+## 📦 Установка
 
-Запустите проект локально: yarn dev
+1. Клонируйте репозиторий: git clone https://github.com/MalrboroI/Department_management.git
+2. Установите зависимости: yarn install
+
+3. Запустите проект локально: yarn dev
