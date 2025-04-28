@@ -1,0 +1,61 @@
+@import "../../GlobalStyles/variables";
+@import "../../GlobalStyles/mixins";
+
+.sidebar {
+  width: 250px;
+  background: $dark;
+  color: white;
+  padding: $spacer * 1.5;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  transition: $transition-base;
+
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    padding: $spacer * 0.5 $spacer;
+    color: rgba(white, 0.8);
+    text-decoration: none;
+    border-radius: $border-radius;
+    transition: $transition-base;
+    border-bottom: 1px solid rgba(white, 0.1);
+
+    &:hover {
+      color: white;
+    }
+
+    &.active {
+      color: white;
+      background-color: $primary;
+      @include button-variant($primary);
+    }
+  }
+
+  .sidebar-link {
+    display: flex;
+    align-items: center;
+    padding: $spacer * 0.5 $spacer;
+    color: rgba(white, 0.8);
+    text-decoration: none;
+    border-radius: $border-radius;
+    transition: $transition-base;
+
+    &:hover {
+      color: white;
+      background-color: rgba(white, 0.1);
+    }
+
+    &.active {
+      color: white;
+      background-color: $primary;
+      @include button-variant($primary);
+    }
+
+    // svg {
+    //   margin-right: $spacer * 0.5;
+    //   width: 1.25rem;
+    //   height: 1.25rem;
+    // }
+  }
+}

@@ -1,0 +1,123 @@
+@import "../../GlobalStyles/variables";
+@import "../../GlobalStyles/mixins";
+
+.department-details {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: $spacer * 2;
+  background-color: $gray-100;
+  box-sizing: border-box;
+
+  .loading-spinner {
+    @include flex-center;
+    height: 100%;
+  }
+
+  .department-card {
+    @include card();
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    box-shadow: $shadow-md;
+    overflow: hidden;
+
+    .card-header {
+      background-color: $gray-500;
+      padding: $spacer * 1.5;
+      border-bottom: 1px solid $gray-200;
+
+      .card-title {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $dark;
+      }
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: $spacer * 2;
+      overflow-y: auto;
+
+      .card-text {
+        margin-bottom: $spacer * 2;
+        color: $gray-700;
+        line-height: 1.6;
+      }
+
+      .alert {
+        margin-bottom: $spacer * 2;
+      }
+
+      .department-actions {
+        display: flex;
+        gap: $spacer;
+        margin-bottom: $spacer * 2;
+        padding-bottom: $spacer * 2;
+        border-bottom: 1px solid $gray-200;
+
+        .btn {
+          padding: $spacer * 0.75 $spacer * 1.5;
+          font-weight: 500;
+          min-width: 120px;
+
+          &.btn-primary {
+            @include button-variant($primary);
+          }
+
+          &.btn-danger {
+            @include button-variant($danger);
+          }
+        }
+      }
+
+      .work-type-table-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 300px;
+
+        .work-type-table {
+          flex: 1;
+          margin-top: 0;
+
+          .form-control,
+          .form-select {
+            height: 40px;
+            padding: $spacer * 0.5 $spacer * 0.75;
+            font-size: 0.9rem;
+          }
+
+          .form-control[as="textarea"] {
+            height: auto;
+            min-height: 80px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .department-details {
+    padding: $spacer;
+
+    .department-card {
+      .card-body {
+        padding: $spacer * 1.5;
+
+        .department-actions {
+          flex-direction: column;
+
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+@import "../../GlobalStyles/variables";
+@import "../../GlobalStyles/mixins";
+
+.form-container {
+  padding: $spacer * 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.employee-form {
+  @include card($spacer * 2, $border-radius-lg);
+  background-color: white;
+  padding: $spacer * 3;
+  box-shadow: $shadow-md;
+
+  .form-title {
+    color: $dark;
+    margin-bottom: $spacer * 2;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: $spacer;
+    border-bottom: 1px solid $gray-200;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacer * 1.5 $spacer * 2;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacer * 0.5;
+  }
+
+  .form-label {
+    font-weight: 500;
+    color: $gray-700;
+    font-size: 0.95rem;
+
+    &.required::after {
+      content: " *";
+      color: $danger;
+    }
+  }
+
+  .form-input {
+    @include form-control;
+    padding: $spacer * 0.75;
+    border: 1px solid $gray-300;
+    transition: $transition-base;
+    height: 50px;
+
+    &:focus {
+      border-color: $primary;
+      box-shadow: 0 0 0 0.2rem rgba($primary, 0.1);
+    }
+
+    &.is-invalid {
+      border-color: $danger;
+    }
+  }
+
+  .error-message {
+    color: $danger;
+    font-size: 0.85rem;
+    margin-top: $spacer * 0.25;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $spacer * 2;
+    padding-top: $spacer * 1.5;
+    border-top: 1px solid $gray-200;
+    gap: $spacer;
+
+    .cancel-btn {
+      @include button-variant($primary);
+      min-width: 120px;
+      padding: $spacer * 0.75 $spacer * 1.5;
+      font-weight: 500;
+    }
+
+    .submit-btn {
+      @include button-variant($info);
+      padding: $spacer * 0.75 $spacer * 1.5;
+      font-weight: 500;
+    }
+
+    .spinner {
+      margin-right: $spacer * 0.5;
+    }
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+
+      .cancel-btn,
+      .submit-btn {
+        width: 100%;
+      }
+    }
+  }
+}

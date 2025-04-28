@@ -1,0 +1,116 @@
+@import "../../GlobalStyles/variables";
+@import "../../GlobalStyles/mixins";
+
+.employees-list {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: $spacer * 2;
+  background-color: $gray-100;
+  box-sizing: border-box;
+
+  .loading-spinner {
+    @include flex-center;
+    height: 100%;
+  }
+
+  .list-header {
+    @include flex-between;
+    margin-bottom: $spacer * 1.5;
+    flex-wrap: wrap;
+    gap: $spacer;
+    width: 100%;
+
+    .add-employee-btn {
+      @include button-variant($primary);
+      padding: $spacer * 0.5 $spacer;
+      border-radius: $border-radius;
+      text-decoration: none;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .search-container {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+
+      .input-group {
+        width: 100%;
+
+        .search-input {
+          @include form-control;
+          width: 100%;
+          border-color: $gray-300;
+
+          &:focus {
+            border-color: $primary-light;
+            box-shadow: 0 0 0 0.25rem rgba($primary, 0.1);
+          }
+        }
+
+        .clear-search-btn {
+          @include button-outline($gray-500, $gray-200, $gray-700);
+          border-left: none;
+          padding: 0 $spacer * 0.75;
+        }
+      }
+    }
+  }
+
+  .table-container {
+    flex: 1;
+    overflow: auto;
+    background-color: white;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    width: 100%;
+
+    .employees-table {
+      width: 100%;
+      margin-bottom: 0;
+      min-width: 800px;
+
+      th {
+        position: sticky;
+        top: 0;
+        background-color: $gray-100;
+        font-weight: 600;
+        padding: $spacer;
+        border-bottom: 2px solid $gray-300;
+        border-right: 1px solid $gray-300;
+        white-space: nowrap;
+        z-index: 10;
+      }
+
+      td {
+        padding: $spacer * 0.75 $spacer;
+        vertical-align: middle;
+        border-bottom: 1px solid $gray-400;
+      }
+
+      .actions-cell {
+        white-space: nowrap;
+
+        .edit-link {
+          margin-right: $spacer;
+        }
+
+        .delete-btn {
+          cursor: pointer;
+          border: none;
+          background-color: transparent;
+          padding: $spacer * 0.25 $spacer * 0.75;
+        }
+      }
+
+      .no-results {
+        td {
+          text-align: center;
+          color: $gray-600;
+          padding: $spacer * 2;
+        }
+      }
+    }
+  }
+}

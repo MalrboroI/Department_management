@@ -1,0 +1,24 @@
+@import "../GlobalStyles/variables";
+@import "../GlobalStyles/mixins";
+
+.not-found {
+  @include flex-center;
+  flex-direction: column;
+  height: 60vh;
+  text-align: center;
+
+  h2 {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+  }
+
+  .home-link {
+    margin-top: 1rem;
+    color: $primary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
